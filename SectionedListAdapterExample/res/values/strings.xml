@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SectionedListAdapter Example</string>
+    <string name="example_1">SectionedListAdapter Example 1</string>
+    <string name="example_2">SectionedListAdapter Example 2</string>
+    <string name="example_3">SectionedListAdapter Example 3</string>
+    <string name="add_more_items">Add more items</string>
+
+</resources>
