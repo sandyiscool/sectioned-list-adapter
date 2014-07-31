@@ -24,4 +24,20 @@ Importing into Eclipse:
 
 2. Select the <b>sectioned-list-adapter</b> directory as the root directory.
 
-3. Import both the projects found in the directory. 
+3. Import both the projects found in the directory.
+
+Bugs, Issues, Features:
+=======================
+
+Please report bugs/issues or request features using the github issue tracker for this repo <br/>
+https://github.com/sandyiscool/sectioned-list-adapter/issues
+
+Code Contribution:
+==================
+
+Code contributions are welcome. If you would like to contribute to this project, please contact me at :<br/>
+<sandyiscool@gmail.com>
+
+License
+=======
+GPL v3<br/> See [LICENSE](https://github.com/sandyiscool/sectioned-list-adapter/blob/master/LICENSE)
