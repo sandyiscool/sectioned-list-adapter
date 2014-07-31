@@ -9,9 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by sandeep on 6/15/14.
- */
 public abstract class SectionedListAdapter<T1,T2> extends BaseAdapter
 {
 
@@ -87,8 +84,18 @@ public abstract class SectionedListAdapter<T1,T2> extends BaseAdapter
         return null;
     }
 
+    /**
+     * Implement this method to return the view that will be used as the section header
+     * 
+     * @see BaseAdapter#getView(int, View, ViewGroup)
+     */
     protected abstract View getHeaderView(int position, View convertView, ViewGroup parent);
 
+    /**
+     * Implement this this method to return the view that will be used as the list item
+     * 
+     * @see BaseAdapter#getView(int, View, ViewGroup)
+     */
     protected abstract View getChildView(int position, View convertView, ViewGroup parent);
 
 
@@ -106,10 +113,14 @@ public abstract class SectionedListAdapter<T1,T2> extends BaseAdapter
 
     public void setData(LinkedHashMap<T1, ? extends List<T2>> data)
     {
-        mElements = null;
         mElements = new ListItemLinkedList(data);
     }
 
+    /**
+     * Class to wrap together the underlying data of a list item and its view type
+     * 
+     * @param <K> The type of the data associated with this list item
+     */
     private class ListItem<K>
     {
         private K mData;
@@ -152,6 +163,10 @@ public abstract class SectionedListAdapter<T1,T2> extends BaseAdapter
         }
     }
 
+    /**
+     * Linked list of ListItems
+     * This is the collection that holds the data in a flattened linear structure
+     */
     protected class ListItemLinkedList extends LinkedList<ListItem<?>>
     {
         private static final long serialVersionUID = 3624066110571101441L;
