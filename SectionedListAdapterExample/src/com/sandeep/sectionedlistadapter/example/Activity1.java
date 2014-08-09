@@ -3,7 +3,6 @@ package com.sandeep.sectionedlistadapter.example;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -27,51 +26,66 @@ public class Activity1 extends Activity
 
         mListView = (ListView) findViewById(R.id.listView);
 
-        addMoreItemsToList();
+        createData();
+        mAdapter=new MyListAdapter1(this, mData);
         mListView.setAdapter(mAdapter);
-
-        Button addMoreItemsButton = (Button) findViewById(R.id.addMoreItemsButton);
-        addMoreItemsButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                addMoreItemsToList();
-                mAdapter.notifyDataSetChanged();
-            }
-        });
+        
+        findViewById(R.id.addMoreItemsButton).setVisibility(View.GONE);
     }
 
-    private void addMoreItemsToList()
+    private void createData()
     {
-        if (mData == null)
-        {
-            mData =new LinkedHashMap<String, ArrayList<String>>();
-        }
-
-        for (int i = 0; i < 30; i++)
-        {
-            String sectionName = "Section-" + (i + 1);
-            ArrayList<String> children= mData.get(sectionName);
-            if (children == null)
-            {
-                children=new ArrayList<String>();
-            }
-            for (int j = 0; j < 5; j++)
-            {
-                children.add(new StringBuilder("Item ").append(j).toString());
-            }
-            mData.put(sectionName, children);
-        }
-
-        if (mAdapter == null)
-        {
-            mAdapter = new MyListAdapter1(this, mData);
-        }
-        else
-        {
-            mAdapter.setData(mData);
-        }
+        mData=new LinkedHashMap<String,ArrayList<String>>();
+        
+        String sectionName;
+        ArrayList<String> children;
+        
+        // 1st section
+        sectionName="Animals";
+        children=new ArrayList<String>();
+        children.add("Cat");
+        children.add("Dog");
+        children.add("Elephant");
+        children.add("Cow");
+        mData.put(sectionName, children);
+        
+        // 2nd section
+        sectionName="Birds";
+        children=new ArrayList<String>();
+        children.add("Parrot");
+        children.add("Eagle");
+        children.add("Pigeon");
+        children.add("Cuckoo");
+        mData.put(sectionName, children);
+        
+        // 3rd section
+        sectionName="Insects";
+        children=new ArrayList<String>();
+        children.add("Spider");
+        children.add("Ant");
+        children.add("Ladybird");
+        children.add("Beetle");
+        mData.put(sectionName, children);
+        
+        // 4th section
+        sectionName="Reptiles";
+        children=new ArrayList<String>();
+        children.add("Crocodile");
+        children.add("Lizard");
+        children.add("Snake");
+        children.add("Alligator");
+        children.add("Komodo Dragon");
+        mData.put(sectionName, children);
+        
+        //5th Section
+        sectionName="Cars";
+        children=new ArrayList<String>();
+        children.add("Porsche");
+        children.add("BMW");
+        children.add("Volkswagen");
+        children.add("Mercedez");
+        children.add("Ferrari");
+        mData.put(sectionName, children);
     }
 
 }
