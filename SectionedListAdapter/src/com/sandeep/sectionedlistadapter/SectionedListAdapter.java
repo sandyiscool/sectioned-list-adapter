@@ -111,6 +111,10 @@ public abstract class SectionedListAdapter<T1,T2> extends BaseAdapter
         return false;
     }
 
+    /**
+     * Sets the data in the adapter. This replaces existing data, if any, in the adapter.
+     * @param data The HashMap data to set in the adapter
+     */
     public void setData(LinkedHashMap<T1, ? extends List<T2>> data)
     {
         mElements = new ListItemLinkedList(data);
